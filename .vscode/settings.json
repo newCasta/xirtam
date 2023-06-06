@@ -1,4 +1,5 @@
 {
     "deno.enable": true,
-    "cSpell.words": ["Xirtam"]
+    "cSpell.words": ["Xirtam"],
+    "conventionalCommits.scopes": ["Matrix"]
 }
