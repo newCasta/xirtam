@@ -29,6 +29,10 @@ export class Matrix<T> extends Array<NormalizeMatrixItem<T>> {
         super(...arr)
     }
 
+    get matrix() {
+        return Array(...this)
+    }
+
     hasItem(predicate: NormalizeMatrixItem<T> | HasItemCallback<T>) {
         if (typeof predicate === 'function') {
             let i = 0
