@@ -1,22 +1,16 @@
-import {
-    NormalizeMatrixItem,
-    MatrixType,
-    HasItemCallback
-} from '../types/matrix.d.ts'
+import { MatrixItem, MatrixType, HasItemCallback } from '../types/matrix.d.ts'
 
-export class Matrix<T> extends Array<NormalizeMatrixItem<T>> {
-    static compare<T>(
-        value: NormalizeMatrixItem<T>,
-        item: NormalizeMatrixItem<T>
-    ) {
-        return value.every((v, i) => v === item[i])
+export class Matrix<T> extends Array<MatrixItem<T>> {
+    static compare<T>(value: MatrixItem<T>, item: MatrixItem<T>) {
+        return value.every(
+            (v, i) => JSON.stringify(v) === JSON.stringify(item[i])
+        )
     }
 
-    static compareMany<T>(
-        value: NormalizeMatrixItem<T>,
-        ...items: MatrixType<T>
-    ) {
-        return items.every(e => value.every((v, i) => v === e[i]))
+    static compareMany<T>(value: MatrixItem<T>, ...items: MatrixType<T>) {
+        return items.every(e =>
+            value.every((v, i) => JSON.stringify(v) === JSON.stringify(e[i]))
+        )
     }
 
     constructor(...arr: MatrixType<T>) {
@@ -33,7 +27,7 @@ export class Matrix<T> extends Array<NormalizeMatrixItem<T>> {
         return Array(...this)
     }
 
-    hasItem(predicate: NormalizeMatrixItem<T> | HasItemCallback<T>) {
+    hasItem(predicate: MatrixItem<T> | HasItemCallback<T>) {
         if (typeof predicate === 'function') {
             let i = 0
 
