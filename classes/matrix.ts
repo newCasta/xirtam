@@ -1,6 +1,11 @@
-import { MatrixItem, MatrixType, HasItemCallback } from '../types/matrix.d.ts'
+import {
+    MatrixItem,
+    MatrixType,
+    HasItemCallback,
+    Matrix as M
+} from '../types/index.d.ts'
 
-export class Matrix<T> extends Array<MatrixItem<T>> {
+export class Matrix<T> extends Array<MatrixItem<T>> implements M<T> {
     static compare<T>(value: MatrixItem<T>, item: MatrixItem<T>) {
         return value.every(
             (v, i) => JSON.stringify(v) === JSON.stringify(item[i])
