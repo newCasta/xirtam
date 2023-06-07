@@ -49,7 +49,9 @@ export class Matrix<T> extends Array<MatrixItem<T>> implements M<T> {
             if (typeof item !== 'object' || typeof item !== 'function') {
                 return this.some(e => {
                     if (e.length === predicate.length) {
-                        return predicate.every((v, i) => v === e[i])
+                        return predicate.every(
+                            (v, i) => JSON.stringify(v) === JSON.stringify(e[i])
+                        )
                     } else false
                 })
             }

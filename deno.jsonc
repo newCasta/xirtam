@@ -3,6 +3,6 @@
         "assertEquals": "https://deno.land/std@0.185.0/testing/asserts.ts"
     },
     "test": {
-        "include": ["./test/main.test.ts"]
+        "include": ["./test/main.spec.ts"]
     }
 }

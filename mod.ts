@@ -1,3 +1,3 @@
-import { Matrix } from './types/index.d.ts'
+import { Matrix } from './classes/matrix.ts'
 
 export { Matrix }
