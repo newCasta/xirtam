@@ -4,5 +4,8 @@
     },
     "test": {
         "include": ["./test/main.test.ts"]
+    },
+    "compilerOptions": {
+        "types": ["./types/matrix.d.ts"]
     }
 }
